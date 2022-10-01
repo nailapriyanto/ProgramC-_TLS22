@@ -1,0 +1,87 @@
+//daily schedule
+
+#include <iostream>                                             
+#include <conio.h>                                                     
+#include <stdio.h>
+#include <iomanip>
+#include <windows.h>
+#include <stdlib.h>
+using namespace std;
+void gotoxy(int x, int y)
+{
+ COORD coord;
+ coord.X = x;
+ coord.Y = y;
+ SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
+}
+
+int main(){
+int i,j;
+char mk[5][5][100];
+char date[5][20]={"Mon","Tue","Wed","Thu","Fri"};
+cout<<"\tInsert Your Course \n";
+cout<<"_______________________________________________\n";
+cout<<endl;
+            for(i=0;i<5;i++)
+            {
+            if(i==0)
+            cout<<"MON\n";
+                        else if(i==1)
+                                    cout<<"TUE\n";
+                        else if(i==2)
+                                    cout<<"WED\n";
+                        else if(i==3)
+                                    cout<<"THU\n";
+                        else if(i==4)
+                                    cout<<"FRI\n";
+         cout<<" "<<endl;
+
+            for(j=0;j<5;j++)
+            {
+            if(j==0)
+                                                            cout<<"07.00  | ";
+            else if(j==1)
+                                                            cout<<"08.40  | ";
+            else if(j==2)
+                                                            cout<<"09.30  | ";
+            else if(j==3)
+                                                            cout<<"13.00  | ";
+            else if(j==4)
+                                                            cout<<"15.30  | ";
+
+                        cout<<" ";gets(mk[i][j]);
+            }
+         cout<<" "<<endl;
+      }
+
+   system("cls");
+   cout<<endl<<endl;
+   cout<<"\t\t\t SCHEDULE \n ";
+   cout<<"\t\t=====================================\n";
+   cout<<endl<<endl<<endl<<endl<<endl;
+            cout<<"| 07.00 |"<<endl;
+            cout<<"| 08.40 |"<<endl;
+            cout<<"| 09.30 |"<<endl;
+            cout<<"| 13.00 |"<<endl;
+            cout<<"| 15.30 |"<<endl;
+            cout<<endl;
+
+            for(int d=0 ; d<5 ; d++)
+                        {
+                          gotoxy(12*(1+d),8);
+                          cout<<date[d];
+                        }
+            for(i=0 ; i<5 ; i++)
+                        {
+                        gotoxy(12*(1+j),10);
+                        for(j=0; j<5 ; j++)
+                                    {
+                                    gotoxy(12*(i+1),10+j);
+                                    cout<<setiosflags(ios::left)<<setw(5)<<mk[i][j];
+
+                                     }
+                        }
+    cout<<endl<<endl<<endl<<"Goodluck!\n\n";
+    cout<<endl<<endl;
+
+getch();}
